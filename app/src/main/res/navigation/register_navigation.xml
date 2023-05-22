@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/register_navigation"
+    app:startDestination="@id/startPage">
+
+    <fragment
+        android:id="@+id/startPage"
+        android:name="com.bashir.codezy.StartPage"
+        android:label="fragment_start_page"
+        tools:layout="@layout/fragment_start_page" >
+        <action
+            android:id="@+id/action_startPage_to_registerMain"
+            app:destination="@id/registerMain" />
+    </fragment>
+    <fragment
+        android:id="@+id/registerMain"
+        android:name="com.bashir.codezy.RegisterMain"
+        android:label="fragment_register_main"
+        tools:layout="@layout/fragment_register_main" />
+</navigation>

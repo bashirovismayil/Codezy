@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="#00000000">
+
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.bashir.codezy.UserProfile"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/usersbanner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+
+        />
+<!--    bottomappbar-->
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/usersbanner"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="820dp"
+        android:src="@color/codezy_light_green"
+        app:shapeAppearanceOverlay="@style/TopRoundedShape"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/homebutton"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/usersbanner"
+        app:layout_constraintHorizontal_bias="0.182"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/usersbanner"
+        app:layout_constraintVertical_bias="0.673">
+
+    </ImageView>
+
+    <ImageView
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:src="@drawable/usericon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/usersbanner"
+        app:layout_constraintHorizontal_bias="0.791"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/usersbanner"
+        app:layout_constraintVertical_bias="0.652">
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/userbannercircle"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:src="@drawable/addbuttoncircle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.981">
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:src="@drawable/post_add"
+        app:layout_constraintBottom_toBottomOf="@+id/userbannercircle"
+        app:layout_constraintEnd_toEndOf="@+id/userbannercircle"
+        app:layout_constraintStart_toStartOf="@+id/userbannercircle"
+        app:layout_constraintTop_toTopOf="@+id/userbannercircle"
+        app:layout_constraintVertical_bias="0.533">
+
+    </ImageView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

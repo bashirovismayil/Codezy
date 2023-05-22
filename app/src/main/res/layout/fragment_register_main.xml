@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RegisterMain"
+    android:background="@drawable/registerback"
+    >
+
+
+
+    <ImageView
+        android:id="@+id/socialmedia"
+        android:layout_width="266dp"
+        android:layout_height="349dp"
+        android:src="@drawable/img_1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.798">
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/registerinfo"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:src="@drawable/registerinfo"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.491"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.338">
+
+    </ImageView>
+
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="324dp"
+        android:src="@drawable/registerbutton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/registerinfo" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:text="@string/codezy_signup"
+        android:textColor="@color/codezy_light_green"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+        app:layout_constraintEnd_toEndOf="@+id/imageView5"
+        app:layout_constraintStart_toStartOf="@+id/imageView5"
+        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+
+    <EditText
+        android:id="@+id/editText2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="@string/codezy_password"
+        android:inputType="textPassword"
+        android:textColorHint="@color/codezy_light_green"
+        app:layout_constraintBottom_toBottomOf="@+id/registerinfo"
+        app:layout_constraintEnd_toEndOf="@+id/registerinfo"
+        app:layout_constraintHorizontal_bias="0.37"
+        app:layout_constraintStart_toStartOf="@+id/registerinfo"
+        app:layout_constraintTop_toTopOf="@+id/registerinfo"
+        app:layout_constraintVertical_bias="0.766">
+
+    </EditText>
+
+    <EditText
+        android:id="@+id/editText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="@string/codezy_mail"
+        android:inputType="textEmailAddress"
+        android:textColorHint="@color/codezy_light_green"
+        app:layout_constraintBottom_toBottomOf="@+id/registerinfo"
+        app:layout_constraintEnd_toEndOf="@+id/registerinfo"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toStartOf="@+id/registerinfo"
+        app:layout_constraintTop_toTopOf="@+id/registerinfo"
+        app:layout_constraintVertical_bias="0.601">
+
+    </EditText>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:hint="@string/codezy_name"
+        android:inputType="text"
+        android:textColorHint="@color/codezy_light_green"
+        app:layout_constraintBottom_toBottomOf="@+id/registerinfo"
+        app:layout_constraintEnd_toEndOf="@+id/registerinfo"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toStartOf="@+id/registerinfo"
+        app:layout_constraintTop_toTopOf="@+id/registerinfo"
+        app:layout_constraintVertical_bias="0.438">
+
+    </EditText>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="28dp"
+        android:text="@string/already_have_an_account_login"
+        android:textColor="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+        >
+
+    </TextView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
