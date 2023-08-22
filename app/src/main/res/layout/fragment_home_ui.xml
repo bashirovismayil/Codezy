@@ -4,49 +4,61 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HomeUI">
+    android:background="@color/white"
+    tools:context=".ui.HomeUI">
+
 
     <ImageView
-        android:layout_width="422dp"
-        android:layout_height="335dp"
-        android:layout_marginBottom="640dp"
-        android:src="@drawable/hometop"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="412dp"
+        android:layout_height="857dp"
+        android:alpha="0.5"
+        android:scaleType="fitStart"
+        android:src="@drawable/home_background_design"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.545"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeLogoBackground" />
 
     <ImageView
-        android:layout_width="121dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="16dp"
-        android:src="@drawable/notification"
+        android:id="@+id/homeLogoBackground"
+        android:layout_width="120dp"
+        android:layout_height="60dp"
+        android:alpha="0.6"
+        android:src="@drawable/home_logo_background"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.944"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="322dp"
-        android:layout_height="108dp"
-        android:layout_marginTop="76dp"
-        android:src="@drawable/courses"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/codezy_notifications"
+        app:layout_constraintBottom_toBottomOf="@+id/homeLogoBackground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:layout_width="362dp"
-        android:layout_height="594dp"
-        android:src="@drawable/img"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.489"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintHorizontal_bias="0.722"
+        app:layout_constraintStart_toEndOf="@+id/homeLogoBackground"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.582" />
+        app:layout_constraintVertical_bias="0.485" />
 
+    <ImageView
+        android:id="@+id/codezyFeedLogo"
+        android:layout_width="80dp"
+        android:layout_height="30dp"
+        android:src="@drawable/codezy_feed_logo"
+        app:layout_constraintBottom_toBottomOf="@+id/homeLogoBackground"
+        app:layout_constraintEnd_toEndOf="@+id/homeLogoBackground"
+        app:layout_constraintStart_toStartOf="@+id/homeLogoBackground"
+        app:layout_constraintTop_toTopOf="@+id/homeLogoBackground" />
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="696dp"
+        android:layout_marginTop="-1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeLogoBackground"
+        app:layout_constraintVertical_bias="0.0" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+

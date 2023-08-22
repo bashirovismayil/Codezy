@@ -1,97 +1,249 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Login"
-    android:background="@drawable/registerback"
-    >
 
-    <ImageView
-        android:id="@+id/socialmedia"
-        android:layout_width="266dp"
-        android:layout_height="349dp"
-        android:src="@drawable/img_1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.798">
+    tools:context=".ui.Login">
 
-    </ImageView>
-
-    <ImageView
-        android:id="@+id/registerinfo"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
-        android:src="@drawable/logininfo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.491"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.338">
-
-    </ImageView>
-
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="324dp"
-        android:src="@drawable/registerbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/registerinfo" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20dp"
-        android:text="@string/codezy_login"
-        android:textColor="@color/codezy_light_green"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5"
-        app:layout_constraintTop_toTopOf="@+id/imageView5" />
+        android:background="@drawable/registerbackground"
+        >
 
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:hint="@string/codezy_password"
-        android:inputType="textPassword"
-        android:textColorHint="@color/codezy_light_green"
-        app:layout_constraintBottom_toBottomOf="@+id/registerinfo"
-        app:layout_constraintEnd_toEndOf="@+id/registerinfo"
-        app:layout_constraintHorizontal_bias="0.374"
-        app:layout_constraintStart_toStartOf="@+id/registerinfo"
-        app:layout_constraintTop_toTopOf="@+id/registerinfo"
-        app:layout_constraintVertical_bias="0.696">
+        <View
+            android:id="@+id/viewId2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/codezyLogoLogin"
+            tools:layout_editor_absoluteY="230dp" />
 
-    </EditText>
+        <TextView
+            android:id="@+id/getStartedText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:text="@string/welcome_back"
+            android:alpha="0.7"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/viewId2" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:hint="@string/codezy_name"
-        android:inputType="text"
-        android:textColorHint="@color/codezy_light_green"
-        app:layout_constraintBottom_toBottomOf="@+id/registerinfo"
-        app:layout_constraintEnd_toEndOf="@+id/registerinfo"
-        app:layout_constraintHorizontal_bias="0.334"
-        app:layout_constraintStart_toStartOf="@+id/registerinfo"
-        app:layout_constraintTop_toTopOf="@+id/registerinfo"
-        app:layout_constraintVertical_bias="0.506">
+        <ImageView
+            android:id="@+id/codezyLogoLogin"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="108dp"
+            android:src="@drawable/codezylogo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    </EditText>
+        <ImageView
+            android:id="@+id/codezy_email"
+            android:layout_width="375dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="56dp"
+            android:alpha="0.7"
+            android:src="@drawable/textbox"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/getStartedText" />
+
+        <EditText
+            android:id="@+id/emailEditText"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/codezy_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.38"
+            app:layout_constraintStart_toStartOf="@+id/codezy_email"
+            app:layout_constraintTop_toTopOf="@+id/codezy_email"
+            app:layout_constraintVertical_bias="0.678" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/codezy_password"
+            android:layout_width="375dp"
+            android:layout_height="80dp"
+            android:alpha="0.7"
+            android:inputType="textPassword"
+            android:src="@drawable/textbox"
+            app:layout_constraintEnd_toEndOf="@+id/codezy_email"
+            app:layout_constraintStart_toStartOf="@+id/codezy_email"
+            app:layout_constraintTop_toBottomOf="@+id/codezy_email" />
+
+        <EditText
+            android:id="@+id/passwordEditText"
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:background="@android:color/transparent"
+            app:layout_constraintBottom_toBottomOf="@+id/codezy_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.38"
+            app:layout_constraintStart_toStartOf="@+id/codezy_password"
+            app:layout_constraintTop_toTopOf="@+id/codezy_password"
+            app:layout_constraintVertical_bias="0.678" />
+
+        <TextView
+            android:id="@+id/yourEmailText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:alpha="0.9"
+            android:text="@string/email_address"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/codezy_email"
+            app:layout_constraintEnd_toEndOf="@+id/codezy_email"
+            app:layout_constraintHorizontal_bias="0.084"
+            app:layout_constraintStart_toStartOf="@+id/codezy_email"
+            app:layout_constraintTop_toTopOf="@+id/codezy_email"
+            app:layout_constraintVertical_bias="0.0" />
+
+
+        <TextView
+            android:id="@+id/yourPassText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.9"
+            android:text="@string/password"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/codezy_password"
+            app:layout_constraintEnd_toEndOf="@+id/codezy_password"
+            app:layout_constraintHorizontal_bias="0.076"
+            app:layout_constraintStart_toStartOf="@+id/codezy_password"
+            app:layout_constraintTop_toTopOf="@+id/codezy_password"
+            app:layout_constraintVertical_bias="0.18" />
+
+        <ImageView
+            android:id="@+id/registerLoginButton"
+            android:layout_width="375dp"
+            android:layout_height="80dp"
+            android:src="@drawable/register_or_login_button"
+            app:layout_constraintEnd_toEndOf="@+id/codezy_password"
+            app:layout_constraintStart_toStartOf="@+id/codezy_password"
+            app:layout_constraintTop_toBottomOf="@+id/codezy_password" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/registerLoginButton"
+            app:layout_constraintEnd_toEndOf="@+id/registerLoginButton"
+            app:layout_constraintStart_toStartOf="@+id/registerLoginButton"
+            app:layout_constraintTop_toTopOf="@+id/registerLoginButton" />
+
+        <ImageView
+            android:id="@+id/goToSignUp"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:src="@drawable/sign_and_login_but"
+            app:layout_constraintBottom_toTopOf="@+id/codezyLogoLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.943"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/don_t_have_an_account"
+            android:textColor="#D2D2D2"
+            app:layout_constraintBottom_toTopOf="@+id/codezyLogoLogin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/goToSignUp"
+            app:layout_constraintHorizontal_bias="0.807"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/goToSignUp"
+            app:layout_constraintVertical_bias="0.29" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:alpha="0.7"
+            android:gravity="center"
+            android:text="@string/get_started"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/goToSignUp"
+            app:layout_constraintEnd_toEndOf="@+id/goToSignUp"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="@+id/goToSignUp"
+            app:layout_constraintTop_toTopOf="@+id/goToSignUp"
+            app:layout_constraintVertical_bias="0.5" />
+
+
+
+        <ImageView
+            android:id="@+id/orSignUpWith"
+            android:layout_width="370dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            android:src="@drawable/or_login_with"
+            app:layout_constraintEnd_toEndOf="@+id/registerLoginButton"
+            app:layout_constraintHorizontal_bias="0.4"
+            app:layout_constraintStart_toStartOf="@+id/registerLoginButton"
+            app:layout_constraintTop_toBottomOf="@+id/registerLoginButton" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/enter_your_details_below"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/codezy_email"
+            app:layout_constraintEnd_toEndOf="@+id/getStartedText"
+            app:layout_constraintHorizontal_bias="0.51"
+            app:layout_constraintStart_toStartOf="@+id/getStartedText"
+            app:layout_constraintTop_toBottomOf="@+id/getStartedText"
+            app:layout_constraintVertical_bias="0.363" />
+
+        <ImageView
+            android:id="@+id/firebaseGoogle"
+            android:layout_width="375dp"
+            android:layout_height="80dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/google_sign_up"
+            app:layout_constraintEnd_toEndOf="@+id/orSignUpWith"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/orSignUpWith"
+            app:layout_constraintTop_toBottomOf="@+id/orSignUpWith" />
+
+
+
+        <TextView
+            android:id="@+id/forgotYourPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot_your_password"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/orSignUpWith"
+            app:layout_constraintEnd_toEndOf="@+id/orSignUpWith"
+            app:layout_constraintStart_toStartOf="@+id/orSignUpWith"
+            app:layout_constraintTop_toBottomOf="@+id/registerLoginButton" />
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>

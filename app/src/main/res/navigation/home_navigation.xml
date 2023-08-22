@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/home_navigation"
+    app:startDestination="@id/homeUIFragment">
+
+    <fragment
+        android:id="@+id/homeUIFragment"
+        android:name="com.bashir.codezy.ui.HomeUI"
+        android:label="fragment_home_ui"
+        tools:layout="@layout/fragment_home_ui" />
+    <fragment
+        android:id="@+id/userProfileFragment"
+        android:name="com.bashir.codezy.ui.UserProfileFragment"
+        android:label="fragment_user_profile"
+        tools:layout="@layout/fragment_user_profile" />
+    <fragment
+        android:id="@+id/searchPageFragment"
+        android:name="com.bashir.codezy.ui.SearchPage"
+        android:label="fragment_search_page"
+        tools:layout="@layout/fragment_search_page" />
+    <fragment
+        android:id="@+id/addPostPageFragment"
+        android:name="com.bashir.codezy.ui.AddPostPage"
+        android:label="fragment_add_post_page"
+        tools:layout="@layout/fragment_add_post_page" />
+    <fragment
+        android:id="@+id/likedPageFragment"
+        android:name="com.bashir.codezy.ui.LikedPage"
+        android:label="fragment_liked_page"
+        tools:layout="@layout/fragment_liked_page" />
+    <fragment
+        android:id="@+id/readMoreFragment"
+        android:name="com.bashir.codezy.ui.ReadMoreFragment"
+        android:label="fragment_read_more"
+        tools:layout="@layout/fragment_read_more" >
+        <argument
+            android:name="information"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.bashir.codezy.ui.SplashScreenFragment"
+        android:label="fragment_splash_screen"
+        tools:layout="@layout/fragment_splash_screen" />
+    <fragment
+        android:id="@+id/registerMain"
+        android:name="com.bashir.codezy.ui.RegisterMain"
+        android:label="fragment_register_main"
+        tools:layout="@layout/fragment_register_main" />
+    <fragment
+        android:id="@+id/login"
+        android:name="com.bashir.codezy.ui.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" />
+</navigation>

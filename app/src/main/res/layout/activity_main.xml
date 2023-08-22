@@ -2,88 +2,63 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/body_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="#00000000">
+    android:background="@color/light_white"
+    tools:context=".ui.MainActivity">
+
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/round_corner"
+        android:elevation="2dp"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:labelVisibilityMode="unlabeled"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:menu="@menu/item_menu" />
+
+
+    <!--    <androidx.fragment.app.FragmentContainerView-->
+    <!--        android:id="@+id/fragmentContainerView"-->
+    <!--        android:name="androidx.navigation.fragment.NavHostFragment"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        app:defaultNavHost="true"-->
+    <!--        app:navGraph="@navigation/home_navigation" />-->
 
 
     <androidx.fragment.app.FragmentContainerView
+
         android:id="@+id/fragmentContainerView"
-        android:name="com.bashir.codezy.UserProfile"
+
+        android:name="androidx.navigation.fragment.NavHostFragment"
+
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/usersbanner"
+
+        android:layout_height="match_parent"
+
+        app:defaultNavHost="true"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toTopOf="parent"
 
-        />
-<!--    bottomappbar-->
+        app:navGraph="@navigation/home_navigation" />
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/usersbanner"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_marginTop="820dp"
-        android:src="@color/codezy_light_green"
-        app:shapeAppearanceOverlay="@style/TopRoundedShape"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
-
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@drawable/homebutton"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/usersbanner"
-        app:layout_constraintHorizontal_bias="0.182"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/usersbanner"
-        app:layout_constraintVertical_bias="0.673">
-
-    </ImageView>
-
-    <ImageView
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        android:src="@drawable/usericon"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/usersbanner"
-        app:layout_constraintHorizontal_bias="0.791"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/usersbanner"
-        app:layout_constraintVertical_bias="0.652">
-
-    </ImageView>
-
-    <ImageView
-        android:id="@+id/userbannercircle"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:src="@drawable/addbuttoncircle"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.981">
-
-    </ImageView>
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:src="@drawable/post_add"
-        app:layout_constraintBottom_toBottomOf="@+id/userbannercircle"
-        app:layout_constraintEnd_toEndOf="@+id/userbannercircle"
-        app:layout_constraintStart_toStartOf="@+id/userbannercircle"
-        app:layout_constraintTop_toTopOf="@+id/userbannercircle"
-        app:layout_constraintVertical_bias="0.533">
-
-    </ImageView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

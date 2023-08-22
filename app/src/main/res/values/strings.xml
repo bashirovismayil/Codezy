@@ -1,16 +1,53 @@
 <resources>
     <string name="app_name">Codezy</string>
     <string name="username">Username</string>
-    <string name="profession_name">ProfessionName</string>
+    <string name="home_but_text">Home</string>
+    <string name="like_text">Like</string>
+    <string name="search_text">Search</string>
+    <string name="profile_text">Profile</string>
+    <string name="create_post">Create Post</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="add_post">Add Post</string>
+    <string name="like">Like</string>
+    <string name="profile">Profile</string>
+    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="register_button">Register</string>
-    <string name="login_button">Login</string>
-    <string name="codezy_password">Password</string>
-    <string name="codezy_mail">Email</string>
-    <string name="codezy_name">Name</string>
-    <string name="codezy_signup">Sign up</string>
-    <string name="codezy_login">Login</string>
-    <string name="start_info">Register or Login to your account</string>
-    <string name="already_have_an_account_login">Already have an account ? Login</string>
+    <string name="email_address">Email Address</string>
+    <string name="your_name">Your name</string>
+    <string name="sign_up">Sign up</string>
+    <string name="get_started">Get Started</string>
+    <string name="it_s_free_forever">It\'s free forever.</string>
+    <string name="enter_your_details_below">Enter your details below</string>
+    <string name="get_started_but">Get Started</string>
+    <string name="login_but">Login</string>
+    <string name="login">Login</string>
+    <string name="password">Password</string>
+    <string name="welcome_back">Welcome Back</string>
+    <string name="forgot_your_password">Forgot your password?</string>
+    <string name="don_t_have_an_account">Don\'t have an account?</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="post_content">Post Content</string>
+    <string name="date">Date</string>
+    <string name="title">Title</string>
+    <string name="readMore">Read more</string>
+    <string name="report">Report</string>
+    <string name="view_profile">View profile</string>
+    <string name="create_a_title">Create a title</string>
+    <string name="write_your_article">Write your article...</string>
+    <string name="create_your_article">Create your article</string>
+    <string name="share">Share</string>
+    <string name="read_more">Read more</string>
+    <string name="readMoreTitle">Title</string>
+    <string name="ReadMoreDate">Date</string>
+    <string name="readMorePostContent">Post content</string>
+    <string name="send_e_mail">Send e-mail</string>
+    <string name="please_enter_your_e_mail">Please enter your e-mail</string>
+    <string name="reset_password_text">Reset password</string>
+    <string name="usernameProfile">Username</string>
+    <string name="your_profession">Your Profession</string>
+    <string name="article_number">Article number</string>
+    <string name="article_views">Article views</string>
+
 
 </resources>

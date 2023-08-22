@@ -9,5 +9,10 @@
     <color name="white">#FFFFFFFF</color>
     <color name="codezy_green">#124935</color>
     <color name="codezy_light_green">#327454</color>
+    <color name="light_white">#D2D2D2</color>
+<!--    <color name="codezy_light_green">#327454</color>-->
+<!--    <color name="codezy_light_green">#327454</color>-->
+<!--    <color name="codezy_light_green">#327454</color>-->
+<!--    <color name="codezy_light_green">#327454</color>-->
 
 </resources>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "770986395491",
+    "project_id": "codezy-f54c4",
+    "storage_bucket": "codezy-f54c4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:770986395491:android:f37b39ce94e90db447f556",
+        "android_client_info": {
+          "package_name": "com.bashir.codezy"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "770986395491-j9if9ppr76ebirbrhvjg1s0lo1i66am1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.bashir.codezy",
+            "certificate_hash": "3542069e2f237224418b7c08e484437d84f2647c"
+          }
+        },
+        {
+          "client_id": "770986395491-vjvr1qucdp4v88tn4cu6f0eel9c60e9r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAMtjYiQJ0xX8HdP9djgamXgpaD8bE8S8I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "770986395491-vjvr1qucdp4v88tn4cu6f0eel9c60e9r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
