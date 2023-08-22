@@ -17,11 +17,14 @@ import com.bashir.codezy.data.model.Post
 import com.bashir.codezy.databinding.FragmentHomeUiBinding
 import com.bashir.codezy.databinding.FragmentUserProfileBinding
 import com.bashir.codezy.viewmodel.HomeUIViewModel
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class UserProfileFragment : Fragment() {
     private lateinit var binding: FragmentUserProfileBinding
+    private val firebaseAuth = FirebaseAuth.getInstance()
+    private val user = firebaseAuth.currentUser
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,6 +39,16 @@ class UserProfileFragment : Fragment() {
 
         return binding.root
         return view
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val firebaseUser = FirebaseAuth.getInstance().currentUser
+        val name = firebaseUser?.displayName ?: ""
+        binding.userNameTextView.text = name
+
 
     }
 }

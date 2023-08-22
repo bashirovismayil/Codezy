@@ -50,4 +50,5 @@ class UserRepository(
     fun getUser(): LiveData<User> {
         return userDao.getUser()
     }
+
 }

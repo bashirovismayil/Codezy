@@ -8,12 +8,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.widget.Toast
 import androidx.core.content.ContextCompat
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import com.bashir.codezy.R
 import com.bashir.codezy.databinding.FragmentRegisterMainBinding
 import com.bashir.codezy.viewmodel.AuthViewModel
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -29,7 +36,8 @@ class RegisterMain : Fragment() {
         binding = FragmentRegisterMainBinding.inflate(inflater, container, false)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window: Window = requireActivity().window
-            window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.codezy_light_green)
+            window.statusBarColor =
+                ContextCompat.getColor(requireContext(), R.color.codezy_light_green)
         }
         return binding.root
         return view
@@ -40,25 +48,45 @@ class RegisterMain : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        binding.goToLogin.setOnClickListener {
+            findNavController(it).navigate(R.id.loginFragment)
+        }
+
         binding.registerLoginButton.setOnClickListener {
             val name = binding.usernameEditText.text.toString()
             val email = binding.emailEditText.text.toString()
             val password = binding.passwordEditText.text.toString()
 
 
-            viewModel.registerUser( email, password) {
+            viewModel.registerUser(email, password) {
 
-                val intent = Intent(requireActivity(), MainActivity::class.java)
-                startActivity(intent)
+                val user = Firebase.auth.currentUser
+                val profileUpdates = userProfileChangeRequest {
+                    displayName = name
+                }
+                user?.updateProfile(profileUpdates)
+                    ?.addOnCompleteListener { updateProfileTask ->
+                        if (updateProfileTask.isSuccessful) {
+                            val bundle = bundleOf("username" to name)
+                            val intent = Intent(requireActivity(), MainActivity::class.java)
+                            startActivity(intent)
+
+                        } else {
+                            Toast.makeText(
+                                requireContext(),
+                                "Unknown Error",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+
+
+                    }
+
             }
 
-        }
 
-        binding.goToLogin.setOnClickListener {
-            Navigation.findNavController(it).navigate(R.id.loginFragment)
-        }
 
+        }
 
     }
-
 }
