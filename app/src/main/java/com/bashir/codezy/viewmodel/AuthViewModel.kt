@@ -17,10 +17,11 @@ class AuthViewModel @Inject constructor(private val userRepository: UserReposito
     val user: LiveData<User>
         get() = _user
 
-    fun registerUser(email: String, password: String,  callback: () -> Unit) {
+    fun registerUser( email: String, password: String,  callback: () -> Unit) {
         userRepository.registerUser(email, password) { result ->
             if (result is FirebaseAuthResult.Success) {
                 _user.value = result.user
+
 
                 callback()
 

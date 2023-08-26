@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bashir.codezy.data.model.Post
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.type.Date
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -15,15 +16,17 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AddPostUIViewModel @Inject constructor(
-    val firestore: FirebaseFirestore
+    val firestore: FirebaseFirestore,
+    val auth: FirebaseAuth
 ) : ViewModel() {
 
     fun insertPostFirebase(post: Post) {
         viewModelScope.launch {
             val postMap = hashMapOf<String, Any>()
+            postMap["username"] = post.username
             postMap["title"] = post.title
             postMap["contentText"] = post.contentText
-            postMap["date"] = com.google.firebase.Timestamp.now()
+            postMap["date"] = post.date
 
             firestore.collection("Posts").document(post.title).set(postMap).addOnSuccessListener {
 

@@ -20,6 +20,7 @@ import com.bashir.codezy.databinding.FragmentRegisterMainBinding
 import com.bashir.codezy.viewmodel.AuthViewModel
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,8 +31,7 @@ class RegisterMain : Fragment() {
 
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         binding = FragmentRegisterMainBinding.inflate(inflater, container, false)
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -61,15 +61,36 @@ class RegisterMain : Fragment() {
             viewModel.registerUser(email, password) {
 
                 val user = Firebase.auth.currentUser
-                val profileUpdates = userProfileChangeRequest {
-                    displayName = name
-                }
-                user?.updateProfile(profileUpdates)
-                    ?.addOnCompleteListener { updateProfileTask ->
+                if (user != null) {
+                    val profileUpdates = userProfileChangeRequest {
+                        displayName = name
+                    }
+
+
+                    user.updateProfile(profileUpdates).addOnCompleteListener { updateProfileTask ->
                         if (updateProfileTask.isSuccessful) {
-                            val bundle = bundleOf("username" to name)
-                            val intent = Intent(requireActivity(), MainActivity::class.java)
-                            startActivity(intent)
+                            val db = Firebase.firestore
+                            val userDocument = db.collection("users").document(user.uid)
+
+                            val userData = hashMapOf(
+                                "name" to name,
+                                "email" to email
+                            )
+
+                            userDocument.set(userData)
+                                .addOnSuccessListener {
+                                    val bundle = bundleOf("username" to name)
+                                    val intent = Intent(requireActivity(), MainActivity::class.java)
+                                    intent.putExtras(bundle)
+                                    startActivity(intent)
+                                }
+                                .addOnFailureListener { exception ->
+                                    Toast.makeText(
+                                        requireContext(),
+                                        "Firestore Error: ${exception.message}",
+                                        Toast.LENGTH_SHORT
+                                    ).show()
+                                }
 
                         } else {
                             Toast.makeText(
@@ -81,12 +102,28 @@ class RegisterMain : Fragment() {
 
 
                     }
-
+                } else {
+                    Toast.makeText(
+                        requireContext(),
+                        "Registration failed",
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
             }
-
-
-
         }
-
     }
 }
+
+//val postsCollection = db.collection("posts")
+//postsCollection.get().addOnSuccessListener { querySnapshot ->
+//    for (document in querySnapshot) {
+//        val userId = document.getString("userId")
+//        if (userId == user.uid) {
+//            val postReference = postsCollection.document(document.id)
+//            postReference.update("username", name)
+//                .addOnFailureListener { exception ->
+//                    // Hata durumunda işlemler
+//                }
+//        }
+//    }
+//}

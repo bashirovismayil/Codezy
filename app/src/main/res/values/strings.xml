@@ -48,6 +48,9 @@
     <string name="your_profession">Your Profession</string>
     <string name="article_number">Article number</string>
     <string name="article_views">Article views</string>
+    <string name="click_on_the_icon_for_select_n_a_photo_from_the_gallery">Click on the icon for select \n a photo from the gallery.</string>
+    <string name="upload">Upload</string>
+    <string name="create_new_profile_photo">Create new profile photo</string>
 
 
 </resources>

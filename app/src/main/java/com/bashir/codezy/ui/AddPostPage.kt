@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.view.Window
 import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.viewModels
 import com.bashir.codezy.R
@@ -16,8 +18,12 @@ import com.bashir.codezy.data.model.Post
 import com.bashir.codezy.databinding.FragmentAddPostPageBinding
 import com.bashir.codezy.databinding.FragmentRegisterMainBinding
 import com.bashir.codezy.viewmodel.AddPostUIViewModel
+import com.google.firebase.Timestamp
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
+import java.text.SimpleDateFormat
 import java.util.Date
+import java.util.Locale
 
 @AndroidEntryPoint
 class AddPostPage : Fragment() {
@@ -36,7 +42,8 @@ class AddPostPage : Fragment() {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             val window: Window = requireActivity().window
-            window.statusBarColor = ContextCompat.getColor(requireContext(), R.color.codezy_light_green)
+            window.statusBarColor =
+                ContextCompat.getColor(requireContext(), R.color.codezy_light_green)
         }
         return binding.root
         return view
@@ -46,22 +53,38 @@ class AddPostPage : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         title = view.findViewById(R.id.AddPostTitle)
         text = view.findViewById(R.id.AddPostText)
 
         view.findViewById<Button>(R.id.share_button).setOnClickListener {
+            Toast.makeText(context, "Post shared", Toast.LENGTH_SHORT).show()
+
+            fun getTimeDate(timestamp: Long): String {
+                return try {
+                    val netDate = Date(timestamp)
+                    val sfd = SimpleDateFormat("dd MMM. yyyy, HH:mm", Locale.getDefault())
+                    sfd.format(netDate)
+                } catch (e: Exception) {
+                    "date"
+                }
+            }
+
+            val content = text.text.toString()
+
+            val user = FirebaseAuth.getInstance().currentUser
+            val userName = user?.displayName
 
             val post = Post(
+                username = userName ?: "",
                 title = title.text.toString(),
-                contentText = text.text.toString(),
-                date = Date().toString()
+                contentText = content,
+                date = getTimeDate(System.currentTimeMillis())
+
             )
 
             viewModel.insertPostFirebase(post)
-
-
             return@setOnClickListener
         }
     }
 }
+

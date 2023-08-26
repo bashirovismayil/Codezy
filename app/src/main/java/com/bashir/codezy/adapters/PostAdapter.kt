@@ -14,6 +14,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bashir.codezy.R
 import com.bashir.codezy.data.model.Post
 import com.bashir.codezy.ui.HomeUI
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import org.w3c.dom.Text
 
 class PostAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostViewHolder>() {
@@ -29,22 +32,39 @@ class PostAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostView
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
 
+        val currentPost = posts[position]
+        val userEmail = currentPost.username
+
+
+        val db = Firebase.firestore
+        val usersCollection = db.collection("users")
+        usersCollection.whereEqualTo("email", userEmail)
+            .get()
+            .addOnSuccessListener { querySnapshot ->
+                if (!querySnapshot.isEmpty) {
+                    val userDocument = querySnapshot.documents[0]
+                    val username = userDocument.getString("name")
+                    holder.usernameTextView.text = username
+                }
+            }
+
+        holder.usernameTextView.text = currentPost.username
         holder.titleTextView.text = posts[position].title
-        holder.dateTextView.text = posts[position].date.toString()
+        holder.dateTextView.text = posts[position].date
         holder.contentTextView.text = posts[position].contentText
 
         readMoreButton.setOnClickListener { view ->
             Navigation.findNavController(view).navigate(R.id.readMoreFragment)
 
-            val currentPost = posts[position]
+
             val bundle = Bundle()
+            bundle.putString("username", currentPost.username)
             bundle.putString("title", currentPost.title)
-            bundle.putString("date", currentPost.date.toString())
+            bundle.putString("date", currentPost.date)
             bundle.putString("content", currentPost.contentText)
 
+
 //            val action = ReadMoreFragmentDirections.actionReadMoreFragmentToReadMoreFragment(currentPost)
-//
-//
 //            Navigation.findNavController(view).navigate(action)
 
         }
@@ -53,5 +73,8 @@ class PostAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostView
     override fun getItemCount(): Int {
         return posts.size
     }
+
 }
+
+
 

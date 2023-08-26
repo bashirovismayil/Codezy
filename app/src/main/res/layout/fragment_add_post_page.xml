@@ -123,4 +123,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.4" />
 
+<!--    <TextView-->
+<!--        android:id="@+id/user_info"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_marginStart="12dp"-->
+<!--        android:text="Username"-->
+<!--        app:layout_constraintBottom_toBottomOf="@+id/createTitleBanner"-->
+<!--        app:layout_constraintStart_toStartOf="@+id/createTitleBanner"-->
+<!--        app:layout_constraintTop_toTopOf="@+id/AddPostTitle"-->
+<!--        app:layout_constraintVertical_bias="0.725" />-->
+
 </androidx.constraintlayout.widget.ConstraintLayout>

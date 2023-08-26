@@ -54,4 +54,9 @@
         android:name="com.bashir.codezy.ui.Login"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" />
+    <fragment
+        android:id="@+id/profilePhotoSelection"
+        android:name="com.bashir.codezy.ui.ProfilePhotoSelection"
+        android:label="fragment_profile_photo_selection"
+        tools:layout="@layout/fragment_profile_photo_selection" />
 </navigation>

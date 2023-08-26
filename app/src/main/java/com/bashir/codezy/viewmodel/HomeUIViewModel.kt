@@ -34,20 +34,16 @@ class HomeUIViewModel @Inject constructor(val firebaseFirestore: FirebaseFiresto
                         val title = d["title"].toString()
                         val contentText = d["contentText"].toString()
                         val date = d["date"].toString()
-
-                        val post = Post(title, contentText, date)
+                        val username = d["username"].toString()
+                        val post = Post(username, title, contentText, date)
                         list.add(post)
 
                     }
 
                     postLivedata.value = list
 
-
                 }
             }
-
         }
-
     }
-
 }
