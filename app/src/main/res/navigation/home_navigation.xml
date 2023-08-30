@@ -59,4 +59,14 @@
         android:name="com.bashir.codezy.ui.ProfilePhotoSelection"
         android:label="fragment_profile_photo_selection"
         tools:layout="@layout/fragment_profile_photo_selection" />
+    <fragment
+        android:id="@+id/userSettings"
+        android:name="com.bashir.codezy.ui.UserSettings"
+        android:label="fragment_user_settings"
+        tools:layout="@layout/fragment_user_settings" />
+    <fragment
+        android:id="@+id/forgotPasswordFragment2"
+        android:name="com.bashir.codezy.ui.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" />
 </navigation>

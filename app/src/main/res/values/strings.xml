@@ -51,6 +51,12 @@
     <string name="click_on_the_icon_for_select_n_a_photo_from_the_gallery">Click on the icon for select \n a photo from the gallery.</string>
     <string name="upload">Upload</string>
     <string name="create_new_profile_photo">Create new profile photo</string>
+    <string name="settings">Settings</string>
+    <string name="log_out">Log out</string>
+    <string name="settings_username">Username</string>
+    <string name="settings_profession">Your Profession</string>
+    <string name="settings_password">Change your password</string>
+    <string name="settings_email">Your Email</string>
 
 
 </resources>

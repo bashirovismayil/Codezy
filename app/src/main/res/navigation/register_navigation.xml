@@ -20,4 +20,6 @@
         android:name="com.bashir.codezy.ui.ForgotPasswordFragment"
         android:label="fragment_forgot_password"
         tools:layout="@layout/fragment_forgot_password" />
+
+
 </navigation>

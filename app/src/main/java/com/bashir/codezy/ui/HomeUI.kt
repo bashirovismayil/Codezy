@@ -51,7 +51,6 @@ class HomeUI : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         viewModel.postLivedata.observe(viewLifecycleOwner) {
             println(it)
             val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
@@ -60,8 +59,10 @@ class HomeUI : Fragment() {
             recyclerView.layoutManager =
                 LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
 
-            recyclerView.adapter?.notifyDataSetChanged()
         }
+
+
+
 
     }
 }

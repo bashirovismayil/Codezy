@@ -1,25 +1,34 @@
 package com.bashir.codezy.adapters
 
+import android.content.ContentProvider
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bashir.codezy.R
 import com.bashir.codezy.data.model.Post
 import com.bashir.codezy.ui.HomeUI
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CircleCrop
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
-import org.w3c.dom.Text
+import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.android.HiltAndroidApp
 
-class PostAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostViewHolder>() {
+
+class PostAdapter(private var posts: List<Post>) : RecyclerView.Adapter<PostViewHolder>() {
 
     private lateinit var readMoreButton: TextView
 
@@ -30,10 +39,12 @@ class PostAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostView
         return PostViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
 
+    override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         val currentPost = posts[position]
         val userEmail = currentPost.username
+
+
 
 
         val db = Firebase.firestore
@@ -48,24 +59,20 @@ class PostAdapter(private val posts: List<Post>) : RecyclerView.Adapter<PostView
                 }
             }
 
+
+
         holder.usernameTextView.text = currentPost.username
         holder.titleTextView.text = posts[position].title
         holder.dateTextView.text = posts[position].date
         holder.contentTextView.text = posts[position].contentText
 
         readMoreButton.setOnClickListener { view ->
-            Navigation.findNavController(view).navigate(R.id.readMoreFragment)
-
+            findNavController(view).navigate(R.id.readMoreFragment)
 
             val bundle = Bundle()
-            bundle.putString("username", currentPost.username)
             bundle.putString("title", currentPost.title)
             bundle.putString("date", currentPost.date)
             bundle.putString("content", currentPost.contentText)
-
-
-//            val action = ReadMoreFragmentDirections.actionReadMoreFragmentToReadMoreFragment(currentPost)
-//            Navigation.findNavController(view).navigate(action)
 
         }
     }

@@ -113,17 +113,3 @@ class RegisterMain : Fragment() {
         }
     }
 }
-
-//val postsCollection = db.collection("posts")
-//postsCollection.get().addOnSuccessListener { querySnapshot ->
-//    for (document in querySnapshot) {
-//        val userId = document.getString("userId")
-//        if (userId == user.uid) {
-//            val postReference = postsCollection.document(document.id)
-//            postReference.update("username", name)
-//                .addOnFailureListener { exception ->
-//                    // Hata durumunda işlemler
-//                }
-//        }
-//    }
-//}

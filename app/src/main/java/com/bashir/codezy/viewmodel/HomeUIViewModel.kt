@@ -1,10 +1,13 @@
 package com.bashir.codezy.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.bashir.codezy.data.model.Post
 import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -28,9 +31,11 @@ class HomeUIViewModel @Inject constructor(val firebaseFirestore: FirebaseFiresto
             firebaseFirestore.collection("Posts").addSnapshotListener { value, error ->
                 if (value != null && !value.isEmpty) {
                     val docs = value.documents
+
                     list.clear()
 
                     for (d in docs) {
+//                        val profilePhoto = d["profilePhoto"].toString()
                         val title = d["title"].toString()
                         val contentText = d["contentText"].toString()
                         val date = d["date"].toString()

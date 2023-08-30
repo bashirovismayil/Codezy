@@ -7,5 +7,5 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeUiViewModel @Inject constructor (
-    //val posts: MutableList<Post>
+//    val posts: MutableList<Post>
 ) : ViewModel()

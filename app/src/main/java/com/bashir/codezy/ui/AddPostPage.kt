@@ -20,6 +20,9 @@ import com.bashir.codezy.databinding.FragmentRegisterMainBinding
 import com.bashir.codezy.viewmodel.AddPostUIViewModel
 import com.google.firebase.Timestamp
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.Date
@@ -70,11 +73,12 @@ class AddPostPage : Fragment() {
             }
 
             val content = text.text.toString()
-
             val user = FirebaseAuth.getInstance().currentUser
             val userName = user?.displayName
 
+
             val post = Post(
+//                profilePhoto = user?.photoUrl.toString(),
                 username = userName ?: "",
                 title = title.text.toString(),
                 contentText = content,

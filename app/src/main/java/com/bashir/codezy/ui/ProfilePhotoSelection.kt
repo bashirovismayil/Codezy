@@ -142,7 +142,7 @@ class ProfilePhotoSelection : Fragment() {
                         Glide.with(requireContext())
                             .load(profilePictureUrl)
                             .skipMemoryCache(true)
-                            .into(ImageView(context))
+                            .into(binding.uploadPhotoButton)
 
                         Snackbar.make(
                             binding.root,

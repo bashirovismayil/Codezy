@@ -23,6 +23,7 @@ class AddPostUIViewModel @Inject constructor(
     fun insertPostFirebase(post: Post) {
         viewModelScope.launch {
             val postMap = hashMapOf<String, Any>()
+//            postMap["profilePhoto"] = post.profilePhoto
             postMap["username"] = post.username
             postMap["title"] = post.title
             postMap["contentText"] = post.contentText

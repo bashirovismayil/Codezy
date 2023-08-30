@@ -7,13 +7,18 @@
     android:background="@color/white"
     tools:context=".ui.UserProfileFragment">
 
+
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-
-
-
+        android:id="@+id/goToUserSettings"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="5dp"
+        android:src="@drawable/user_settings"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.92"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/profile_picture"
@@ -55,7 +60,7 @@
         app:layout_constraintTop_toBottomOf="@+id/profile_picture" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/your_profession_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50sp"
@@ -75,7 +80,7 @@
         android:src="@drawable/user_profile_info_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+        app:layout_constraintTop_toBottomOf="@+id/your_profession_text" />
 
     <TextView
         android:id="@+id/textView5"
